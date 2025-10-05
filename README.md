@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# 🏥 Patients Project with React + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación práctica de **Registro de Pacientes**, desarrollada con **React + TypeScript + Tailwind + Zustand + React Hook Form + React Toastify** para reforzar conceptos clave de hooks, patrones de estado y buenas prácticas en desarrollo frontend.
+La app permite:
 
-Currently, two official plugins are available:
+- **Formulario de registro de pacientes**
+- **Actualización de pacientes**
+- **Eliminar Pacientes**
+- **Persistencia con LocalStorage**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+**⚛️ Hooks de React aplicados:**
+- 🗂️ `useState`  → Manejo de estados locales (inputs, validaciones rápidas, toggles de UI).
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- 🚀 `useEffect` → Sincronización con LocalStorage para persistencia de pacientes.
 
-## Expanding the ESLint configuration
+- 🗝️ `useId` → Generación de identificadores únicos en formularios.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🤖 `useMemo` → Optimización de cálculos derivados (por ejemplo, listado de pacientes).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**🔹 Hooks de Zustand**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- `useStore` → Consumo del estado global de pacientes sin necesidad de prop drilling.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**🔹 Hooks de React Hook Form**
+
+- `useForm` → Manejo de formularios (control de inputs, validaciones, envío de datos).
+
+- `Controller` (componente hook-based) → Integración de inputs personalizados con el formulario.
+  
+---
+
+## 📂 Estructura del proyecto
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+├─ components/ # Componentes reutilizables
+├─ store/ #  Estado global con zustand 
+├─ types/ # Definición de types (Patient, DraftPatient.)
+└─ App.jsx # Punto de entrada principal
 ```
+---
+
+## 🔧 Setup del proyecto
+
+1. Clonar el repositorio:
+   ```
+   git clone https://github.com/thonyrm/guitar_project.git
+   ```
+2. Instalar dependencias:
+
+    ```
+    npm install
+    ```
+
+3. Ejecutar en modo desarrollo:
+    ```
+    npm run dev
+    ```
